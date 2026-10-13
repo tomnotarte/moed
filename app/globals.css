@@ -1,0 +1,71 @@
+@import "@fontsource/libre-baskerville/400.css";
+@import "@fontsource/libre-baskerville/400-italic.css";
+@import "@fontsource/libre-baskerville/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection { background: #F1C488; color: #2A2118; }
+  :focus-visible { outline: 2px solid #BF8E4A; outline-offset: 3px; border-radius: 4px; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-content px-5 sm:px-8; }
+  .h-display { @apply font-serif tracking-[-0.01em]; line-height: 1.12; }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-medium transition-colors duration-200;
+  }
+  .btn-gold { @apply btn bg-gold-light text-ink hover:bg-[#F6D3A2]; }
+  .btn-burgundy { @apply btn bg-burgundy text-cream hover:bg-burgundy-deep; }
+  .btn-ghost-light { @apply btn border border-cream/30 text-cream hover:border-cream/60; }
+  .btn-ghost-dark { @apply btn border border-ink/25 text-ink hover:border-ink/60; }
+}
+
+/* ---------- Scroll reveal (one quiet entrance, not per-card bounce) ---------- */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* ---------- Hero: monogram trace, then fill ---------- */
+.trace path {
+  fill: transparent;
+  stroke: #BF8E4A;
+  stroke-width: 0.6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trace 2.6s cubic-bezier(.6,.1,.3,1) .2s forwards, fill-in 1.2s ease 2.3s forwards;
+}
+@keyframes trace { to { stroke-dashoffset: 0; } }
+@keyframes fill-in { to { fill: currentColor; stroke-opacity: 0; } }
+
+.hero-rise { opacity: 0; transform: translateY(10px); animation: rise 1s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+.phone-float { animation: float 9s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* ---------- SOAP steps: progress rule fills as you scroll through ---------- */
+/* Dimming only on desktop, where the sticky phone shows the active step. */
+@media (min-width: 768px) {
+  .step { transition: opacity .6s ease; opacity: .38; }
+  .step.is-active, .step.is-done { opacity: 1; }
+}
+.step .step-letter { transition: color .6s ease; }
+.step.is-active .step-letter { color: #F1C488; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .hero-rise { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+  .trace path { animation: none; fill: currentColor; stroke: none; }
+  .phone-float { animation: none; }
+  .step { opacity: 1; transition: none; }
+}
