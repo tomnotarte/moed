@@ -5,16 +5,18 @@ import { LogoNav } from "./Logo";
 
 /**
  * Supabase redirects here (an https page) after verifying the recovery
- * link, with the session tokens in the URL hash. Mobile browsers and email
- * clients don't reliably follow an https -> custom-scheme redirect on
- * Supabase's own server-side hop, so this page forwards the hash on to the
- * app's moed:// deep link itself, with a manual fallback button.
+ * link, with a PKCE `code` query param (the app uses flowType: 'pkce', so
+ * there's no access_token in the hash - just ?code=... to exchange for a
+ * session). Mobile browsers and email clients don't reliably follow an
+ * https -> custom-scheme redirect on Supabase's own server-side hop, so
+ * this page forwards the query string on to the app's moed:// deep link
+ * itself, with a manual fallback button.
  */
 export function ResetPasswordClient() {
   const [href, setHref] = useState("moed://reset-password");
 
   useEffect(() => {
-    const deepLink = "moed://reset-password" + window.location.hash;
+    const deepLink = "moed://reset-password" + window.location.search;
     setHref(deepLink);
     window.location.replace(deepLink);
   }, []);
