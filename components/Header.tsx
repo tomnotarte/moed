@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { LogoNav } from "./Logo";
-import { nav, site } from "@/lib/site";
+import { nav } from "@/lib/site";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,7 +32,7 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <a href={site.signupUrl} className="btn-gold !px-5 !py-2.5 text-[14px]">Get started</a>
+          <a href="#download" className="btn-gold !px-5 !py-2.5 text-[14px]">Get the app</a>
         </nav>
 
         <button
@@ -55,7 +55,7 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <a href={site.signupUrl} className="btn-gold mt-4">Get started</a>
+          <a href="#download" onClick={() => setOpen(false)} className="btn-gold mt-4">Get the app</a>
         </nav>
       )}
     </header>

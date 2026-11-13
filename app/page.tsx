@@ -3,6 +3,7 @@ import { LogoHorizontal, LogoStacked, Submark } from "@/components/Logo";
 import { CountUp, Reveal } from "@/components/motion";
 import { Phone, ScreenBible, ScreenCalendar, ScreenChurch, ScreenHome } from "@/components/Phone";
 import { SoapSteps } from "@/components/SoapSteps";
+import { StoreButtons } from "@/components/StoreButtons";
 import { site } from "@/lib/site";
 
 export default function Home() {
@@ -48,9 +49,8 @@ function Hero() {
             Moed is a Bible and SOAP journaling app from {site.org}. Read the passage, write what
             you see, and pray — one quiet appointment, kept each day.
           </p>
-          <div className="hero-rise mt-9 flex flex-wrap gap-3" style={{ animationDelay: "1000ms" }}>
-            <a href={site.signupUrl} className="btn-gold">Get started</a>
-            <a href="#method" className="btn-ghost-light">See how it works</a>
+          <div className="hero-rise mt-9" style={{ animationDelay: "1000ms" }}>
+            <StoreButtons />
           </div>
           <p className="hero-rise mt-12 text-[14px] text-cream/55" style={{ animationDelay: "1200ms" }}>
             Moed (<span lang="he" dir="rtl">מוֹעֵד</span>) is Hebrew for an appointed time.
@@ -366,7 +366,7 @@ function Faq() {
 
 function FinalCta() {
   return (
-    <section id="signup" className="relative overflow-hidden bg-ink text-cream">
+    <section id="download" className="relative overflow-hidden bg-ink text-cream">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -379,11 +379,9 @@ function FinalCta() {
             Make room for your appointed time.
           </h2>
           <p className="mx-auto mt-5 max-w-[44ch] text-[17px] leading-[1.7] text-cream/70">
-            Create your account and write your first SOAP entry today.
+            Download Moed and write your first SOAP entry today.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <a href={site.signupUrl} className="btn-gold">Get started</a>
-          </div>
+          <StoreButtons className="mt-9 justify-center" />
         </Reveal>
       </div>
     </section>

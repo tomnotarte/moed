@@ -3,8 +3,9 @@ export const site = {
   name: "Moed",
   org: "My HOPE Church",
   tagline: "Your appointed time with God, every day.",
-  // TODO: replace with the real sign-up URL before launch.
-  signupUrl: "#signup",
+  // TODO: replace with the real store listing URLs.
+  appStoreUrl: "#download",
+  playStoreUrl: "#download",
   // TODO: replace with the real contact address for church onboarding.
   churchContactUrl: "mailto:hello@example.com?subject=Moed%20for%20our%20church",
 };

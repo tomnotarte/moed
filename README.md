@@ -9,7 +9,7 @@ npm run build
 ```
 
 ## Before launch
-- `lib/site.ts` — replace `signupUrl` and `churchContactUrl` placeholders.
+- `lib/site.ts` — replace `appStoreUrl`, `playStoreUrl` and `churchContactUrl` placeholders.
 - `components/Phone.tsx` — hand-built placeholder screens; swap for real app screenshots.
 - Hero background in `app/page.tsx` uses a gradient in place of brand photography.
 - `app/about`, `app/privacy`, `app/terms` — placeholder copy.
