@@ -3,7 +3,7 @@ export const site = {
   name: "Moed",
   org: "My HOPE Church",
   tagline: "Your appointed time with God, every day.",
-  appStoreUrl: "https://apps.apple.com/ph/app/moed-soap-devotional-app/id6833872129",
+  appStoreUrl: "https://apps.apple.com/app/id6833872129",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.notarte.moed",
   // TODO: replace with the real contact address for church onboarding.
   churchContactUrl: "mailto:hello@example.com?subject=Moed%20for%20our%20church",
