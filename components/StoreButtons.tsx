@@ -26,14 +26,14 @@ const badge =
 export function StoreButtons({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
-      <a href={site.appStoreUrl} className={badge} aria-label="Download Moed on the App Store">
+      <a href={site.appStoreUrl} target="_blank" rel="noopener noreferrer" className={badge} aria-label="Download Moed on the App Store">
         <AppleIcon />
         <span className="flex flex-col leading-none">
           <span className="text-[11px] text-cream/75">Download on the</span>
           <span className="mt-1 text-[18px] font-semibold tracking-tight">App Store</span>
         </span>
       </a>
-      <a href={site.playStoreUrl} className={badge} aria-label="Get Moed on Google Play">
+      <a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer" className={badge} aria-label="Get Moed on Google Play">
         <PlayIcon />
         <span className="flex flex-col leading-none">
           <span className="text-[11px] uppercase tracking-wide text-cream/75">Get it on</span>
